@@ -1,0 +1,15 @@
+name: Notify Google Chat
+
+on:
+  push:
+  pull_request:
+  issues:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Google Chat
+        uses: google-github-actions/send-google-chat-webhook@v0.0.2
+        with:
+          webhook_url: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
